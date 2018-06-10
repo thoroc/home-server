@@ -43,7 +43,8 @@ CouchPotato:
 ------------
 
 1. go to portainer http://localhost:9000 & launch couchpotato from there OR go directly to http://localhost:5050
-2. go to the settings and enable qBittorrent from the Downloaders section with the following:
+2. disable the ```blackhole``` feature (permission error encoutered)
+3. go to the settings and enable qBittorrent from the Downloaders section with the following:
 
 ```
     host: http://qbittorrent:8090/

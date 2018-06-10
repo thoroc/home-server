@@ -23,7 +23,6 @@ How?
  * copy and edit ```.env.dist``` as ```.env```
  * run ```make``` to see a list of available tasks
 
-
 Technology
 -------------
 

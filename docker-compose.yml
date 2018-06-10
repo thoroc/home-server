@@ -1,0 +1,19 @@
+version: "3.6"
+
+services:
+
+    portainer:
+      image: portainer/portainer
+      container_name: portainer
+      hostname: portainer
+      restart: always
+      command: --templates http://templates/templates.json
+      env_file: 
+        - .env
+      ports:
+        - 9000:9000
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - ${APPS_DIR}/portainer/data:/data
+      environment:
+        - TZ=${TZ}

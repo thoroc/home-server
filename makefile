@@ -2,6 +2,13 @@
 
 INTERACTIVE:=$(shell [ -t 0 ] && echo 1)
 
+ROOT_DIR:=$(CURDIR)
+OPT_DIR:=${ROOT_DIR}/opt
+
+# Include all module .fn.mk files
+include $(wildcard ${OPT_DIR}/make/*.fn.mk)
+include $(wildcard ${OPT_DIR}/make/*.mk)
+
 .PHONY: help
 help: ## Generate list of targets with descriptions
 	@awk -F ':|##' '/^[^\t].+:.*\#\#/ {printf "$(STYLE_cyan_bold)%-30s$(STYLE_reset) %s\n", $$1, $$NF }' $(MAKEFILE_LIST) | sort

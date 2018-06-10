@@ -46,11 +46,10 @@ services:
       - 32414:32414/udp
     environment:
       - TZ=${TZ}
-      - PLEX_CLAIM=${PLEX_TOKEN}
+      - PLEX_CLAIM=${PLEX_CLAIM}
       - ADVERTISE_IP=http://${PLEX_PUBLIC_IP}:32400/
     volumes:
       - ${APPS_DIR}/plex/database:/config
       - ${APPS_DIR}/plex/transcode/temp:/transcode
       - ${MEDIA_DIR}:/data
-      - ${FILM_DIR}:/media/film
-      - ${TV_SHOW_DIR}:/media/tvshow
+      - ${LOGS_DIR}/plex:/config/Library/Application Support/Plex Media Server/Logs

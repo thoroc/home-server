@@ -30,4 +30,23 @@ Technology
   * watchtower
   * plex
   * couchpotato
-  * transmission
+  * qbittorent
+
+Plex:
+-----
+
+1. go to portainer http://localhost:9000 & launch couchpotato from there OR go directly to http://localhost:32400
+2. setup Plex
+3. setup new ```Films``` and ```TV programmes``` libraries using ```/data/movies``` and ```/data/tvshows``` respectively as the directories
+
+CouchPotato:
+------------
+
+1. go to portainer http://localhost:9000 & launch couchpotato from there OR go directly to http://localhost:5050
+2. go to the settings and enable qBittorrent from the Downloaders section with the following:
+
+```
+    host: http://qbittorrent:8090/
+    username: admin
+    password: adminadmin
+```

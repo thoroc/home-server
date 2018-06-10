@@ -72,3 +72,4 @@ services:
       - ${APPS_DIR}/couchpotato:/config
       - ${DOWNLOAD_DIR}:/downloads
       - ${MEDIA_DIR}/movies:/movies
+      - ${LOGS_DIR}/couchpotato:/var/log/couchpotato

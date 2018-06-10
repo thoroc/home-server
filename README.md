@@ -29,3 +29,5 @@ Technology
   * portainer
   * watchtower
   * plex
+  * couchpotato
+  * transmission

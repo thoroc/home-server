@@ -73,3 +73,23 @@ services:
       - ${DOWNLOAD_DIR}:/downloads
       - ${MEDIA_DIR}/movies:/movies
       - ${LOGS_DIR}/couchpotato:/var/log/couchpotato
+
+  transmission:
+    image: linuxserver/transmission
+    container_name: transmission
+    hostname: hostname
+    restart: always
+    env_file: 
+      - .env
+    environment: 
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    ports: 
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    volumes: 
+      - ${APPS_DIR}/tranmission:/config
+      - ${DOWNLOAD_DIR}:/downloads
+      - ${WATCH_DIR}:/watch

@@ -29,3 +29,4 @@ Technology
 
   * portainer
   * watchtower
+  * plex

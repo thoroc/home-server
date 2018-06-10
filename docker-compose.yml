@@ -2,27 +2,55 @@ version: "3.6"
 
 services:
 
-    portainer:
-      image: portainer/portainer
-      container_name: portainer
-      hostname: portainer
-      restart: always
-      command: --templates http://templates/templates.json
-      env_file: 
-        - .env
-      ports:
-        - 9000:9000
-      volumes:
-        - /var/run/docker.sock:/var/run/docker.sock
-        - ${APPS_DIR}/portainer/data:/data
-      environment:
-        - TZ=${TZ}
+  portainer:
+    image: portainer/portainer
+    container_name: portainer
+    hostname: portainer
+    restart: always
+    command: --templates http://templates/templates.json
+    env_file: 
+      - .env
+    ports:
+      - 9000:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${APPS_DIR}/portainer/data:/data
+    environment:
+      - TZ=${TZ}
 
-    watchtower:
-      image: v2tec/watchtower
-      container_name: watchtower
-      hostname: watchtower
-      restart: always
-      volumes:
-        - /var/run/docker.sock:/var/run/docker.sock
-      command: --schedule "0 0 4 * * *" --cleanup
+  watchtower:
+    image: v2tec/watchtower
+    container_name: watchtower
+    hostname: watchtower
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --schedule "0 0 4 * * *" --cleanup
+
+  plex:
+    image: plexinc/pms-docker
+    container_name: plex
+    hostname: plex
+    restart: unless-stopped
+    env_file: 
+      - .env
+    ports:
+      - 32400:32400/tcp
+      - 3005:3005/tcp
+      - 8324:8324/tcp
+      - 32469:32469/tcp
+      - 1900:1900/udp
+      - 32410:32410/udp
+      - 32412:32412/udp
+      - 32413:32413/udp
+      - 32414:32414/udp
+    environment:
+      - TZ=${TZ}
+      - PLEX_CLAIM=${PLEX_TOKEN}
+      - ADVERTISE_IP=http://${PLEX_PUBLIC_IP}:32400/
+    volumes:
+      - ${APPS_DIR}/plex/database:/config
+      - ${APPS_DIR}/plex/transcode/temp:/transcode
+      - ${MEDIA_DIR}:/data
+      - ${FILM_DIR}:/media/film
+      - ${TV_SHOW_DIR}:/media/tvshow

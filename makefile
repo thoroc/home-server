@@ -14,7 +14,12 @@ list: ## cmd line completion for 'make(space)(tab)'
 kill_all: ## take all the containers down
 	@docker-compose down -v --remove-orphans
 
-.PHONY: portainer
-portainer: ## run portainer as stand alone container
-	@docker-compose up -d portainer
-	@echo "portainer started on http://localhost:"`docker-compose port portainer 9000 | cut -f 2 -d :`	
+.PHONY: watchtower
+watchtower: ## run watchtower as stand alone container
+	@docker-compose up -d watchtower
+	@echo "watchtower started on http://localhost:"`docker-compose port watchtower 9000 | cut -f 2 -d :`	
+
+.PHONY: watchtower
+watchtower: ## run watchtower as stand alone container
+	@docker-compose up -d watchtower
+

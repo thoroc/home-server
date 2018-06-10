@@ -18,13 +18,14 @@ It is also a good opportunity to play about with Docker that seems to be omni pr
 How?
 -------
 
-* clone the present repository: ```git clone github.com/thoroc/home-server```
-* move to the new folder on your machine
-* copy and edit ```.env.dist``` as ```.env```
-* run ```make``` to see a list of available tasks
+ * clone the present repository: ```git clone github.com/thoroc/home-server```
+ * move to the new folder on your machine
+ * copy and edit ```.env.dist``` as ```.env```
+ * run ```make``` to see a list of available tasks
 
 
 Technology
 -------------
 
- * Portainer
+  * portainer
+  * watchtower

@@ -17,6 +17,10 @@ help: ## Generate list of targets with descriptions
 list: ## cmd line completion for 'make(space)(tab)'
 	@$(MAKE) -pRrq -f $(lastword $(MAKEFILE_LIST)) : 2>/dev/null | awk -v RS= -F: '/^# File/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | sort | egrep -v -e '^[^[:alnum:]]' -e '^$@$$' | xargs
 
+.PHONY: run_all
+run_all: ## run all the containers in detached mode
+	@docker-compose up -d
+
 .PHONY: kill_all
 kill_all: ## take all the containers down
 	@docker-compose down -v --remove-orphans

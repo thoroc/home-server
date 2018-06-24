@@ -30,7 +30,7 @@ Stack
   * [watchtower](https://github.com/v2tec/watchtower): update running containers 
   * [plex](https://www.plex.tv/): media center
   * [couchpotato](https://couchpota.to/): automatic movie download management
-  * qbittorent
+  * [qbittorent](https://www.qbittorrent.org/): bittorrent client
 
 Plex:
 -----
@@ -51,6 +51,7 @@ CouchPotato:
     username: admin
     password: adminadmin
 ```
+
 TODO:
 -----
 
@@ -58,5 +59,6 @@ TODO:
 * Add [`Ombi`](https://github.com/tidusjar/Ombi) container
 * Add [`Tautulli / PlexPy`](https://github.com/Tautulli/Tautulli) container
 * Add [`Sickbeard`](https://github.com/SickRage/SickRage) container
-* Add [`mopidy`] (https://github.com/mopidy/mopidy) container
+* Add [`mopidy`](https://github.com/mopidy/mopidy) container
 * Add [`snapcast`](https://github.com/badaix/snapcast) container
+* Add front-end to access all application (instead of going through portainer). To be determined

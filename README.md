@@ -1,6 +1,3 @@
-HOME SERVER
-===========
-
 #What?
 
 This repository is a modification of the superb https://www.smarthomebeginner.com/docker-home-media-server-2018-basic tutorial. It is also a mean to learn more about Docker and docker-compose, while adding to it with personal experience.
@@ -28,7 +25,7 @@ It is also a good opportunity to play about with Docker that seems to be omni pr
   * [couchpotato](https://couchpota.to/): automatic movie download management
   * [qbittorent](https://www.qbittorrent.org/): bittorrent client
 
-#Plex:
+##Plex:
 
 1. go to portainer http://localhost:9000 & launch couchpotato from there OR go directly to http://localhost:32400
 2. setup Plex

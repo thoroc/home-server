@@ -23,13 +23,13 @@ How?
  * copy and edit ```.env.dist``` as ```.env```
  * run ```make``` to see a list of available tasks
 
-Technology
+Stack
 -------------
 
-  * portainer
-  * watchtower
-  * plex
-  * couchpotato
+  * [portainer](https://www.portainer.io/): orchestrate the containers
+  * [watchtower](https://github.com/v2tec/watchtower): update running containers 
+  * [plex](https://www.plex.tv/): media center
+  * [couchpotato](https://couchpota.to/): automatic movie download management
   * qbittorent
 
 Plex:
@@ -58,4 +58,5 @@ TODO:
 * Add [`Ombi`](https://github.com/tidusjar/Ombi) container
 * Add [`Tautulli / PlexPy`](https://github.com/Tautulli/Tautulli) container
 * Add [`Sickbeard`](https://github.com/SickRage/SickRage) container
+* Add [`mopidy`] (https://github.com/mopidy/mopidy) container
 * Add [`snapcast`](https://github.com/badaix/snapcast) container

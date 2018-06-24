@@ -17,6 +17,17 @@ It is also a good opportunity to play about with Docker that seems to be omni pr
  * copy and edit ```.env.dist``` as ```.env```
  * run ```make``` to see a list of available tasks
 
+## Usage
+``` bash
+help                            Generate list of targets with descriptions
+kill_all                        take all the containers down
+list                            cmd line completion for 'make(space)(tab)'
+portainer                       run portainer as stand alone container
+run_all                         run all the containers in detached mode
+watchtower                      run watchtower as stand alone container
+
+```
+
 # Stack
 
   * [portainer](https://www.portainer.io/): orchestrate the containers

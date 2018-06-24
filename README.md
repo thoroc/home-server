@@ -51,3 +51,11 @@ CouchPotato:
     username: admin
     password: adminadmin
 ```
+TODO:
+-----
+
+* Add a user friendly script to populate `.env` file
+* Add [`Ombi`](https://github.com/tidusjar/Ombi) container
+* Add [`Tautulli / PlexPy`](https://github.com/Tautulli/Tautulli) container
+* Add [`Sickbeard`](https://github.com/SickRage/SickRage) container
+* Add [`snapcast`](https://github.com/badaix/snapcast) container

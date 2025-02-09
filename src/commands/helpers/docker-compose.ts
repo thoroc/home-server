@@ -3,6 +3,14 @@ import { parse } from 'jsr:@std/yaml';
 import * as dc from 'npm:docker-compose';
 import { DOCKER_COMPOSE_FILE } from './constants.ts';
 
+export const allServices = async (filePath?: string): Promise<string[]> => {
+  const services = getServices(filePath);
+  const runningServices = await getRunningServices();
+  const runningServiceNames = runningServices.map((service) => service.name);
+
+  return services.filter((service) => runningServiceNames.includes(service));
+};
+
 export const getServices = (filePath?: string): string[] => {
   const dockerComposeFile = filePath || DOCKER_COMPOSE_FILE;
   const data = Deno.readTextFileSync(dockerComposeFile);

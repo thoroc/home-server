@@ -1,0 +1,21 @@
+services:
+  
+  couchpotato:
+    image: linuxserver/couchpotato
+    container_name: couchpotato
+    hostname: couchpotato
+    restart: always
+    env_file: 
+      - .env
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - UMASK_SET=022
+    ports:
+      - 5050:5050
+    volumes: 
+      - ${APPS_DIR}/couchpotato:/config
+      - ${DOWNLOAD_DIR}:/downloads
+      - ${MEDIA_DIR}/movies:/movies
+      - ${LOGS_DIR}/couchpotato:/config/data/logs

@@ -1,5 +1,5 @@
 import { ArgumentValue, Type, ValidationError } from "@cliffy/command";
-import { getServices } from "./docker-compose.ts";
+import { getServices } from "../mod.ts";
 
 export class AppType extends Type<string> {
   public readonly apps: string[];

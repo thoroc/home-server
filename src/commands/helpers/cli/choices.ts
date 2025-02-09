@@ -1,13 +1,14 @@
-import { Checkbox } from "jsr:@cliffy/prompt@1.0.0-rc.7";
-import { getRunningServices, getServices } from "./docker-compose.ts";
+import { Checkbox } from 'jsr:@cliffy/prompt@1.0.0-rc.7';
+import { DOCKER_COMPOSE_FILE } from '../constants.ts';
+import { getIncludedServices, getRunningServices } from '../mod.ts';
 
 export const appsCheckbox = async (
   actionName: string,
-  running?: boolean,
+  running?: boolean
 ): Promise<string[]> => {
   const services = running
     ? (await getRunningServices()).map((service) => service.name)
-    : getServices("docker-compose.yml");
+    : getIncludedServices(DOCKER_COMPOSE_FILE);
 
   const options = services.map((service) => ({
     name: service,
@@ -15,7 +16,7 @@ export const appsCheckbox = async (
   }));
 
   if (services.length === 0) {
-    console.log("No running container to stop");
+    console.log('No running container to stop');
     Deno.exit(1);
   }
 

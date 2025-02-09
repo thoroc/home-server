@@ -1,5 +1,5 @@
 import * as dc from "npm:docker-compose";
-import { appsCheckbox } from "../helpers/choices.ts";
+import { appsCheckbox } from "../helpers/mod.ts";
 
 interface StopOptions {
   all?: boolean;

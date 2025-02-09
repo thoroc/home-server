@@ -1,5 +1,5 @@
 import { Command } from "jsr:@cliffy/command@1.0.0-rc.7";
-import { AppType } from "../helpers/option-type.ts";
+import { AppType } from "../helpers/mod.ts";
 import { stopAction } from "./action.ts";
 
 const stopCommand = new Command()

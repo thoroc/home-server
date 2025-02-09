@@ -1,5 +1,9 @@
 import chalk from 'npm:chalk';
-import { getIncludedServices, getRunningServices } from '../helpers/mod.ts';
+import {
+  getIncludedServices,
+  getRunningServices,
+  getServices,
+} from '../helpers/mod.ts';
 
 interface ListOptions {
   all?: boolean;
@@ -7,6 +11,7 @@ interface ListOptions {
 }
 
 export const listAction = async (options: ListOptions) => {
+  const recursive = options.recursive || false;
   const runningServices = await getRunningServices();
 
   for (const service of runningServices) {
@@ -16,7 +21,7 @@ export const listAction = async (options: ListOptions) => {
   }
 
   if (options.all) {
-    const availableServices = getIncludedServices();
+    const availableServices = recursive ? getIncludedServices() : getServices();
 
     const runningServiceNames = runningServices.map((service) => service.name);
     const missingServices = availableServices.filter(

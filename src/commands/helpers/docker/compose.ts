@@ -3,7 +3,6 @@ import {
   DefinitionsInclude,
   PropertiesServices,
 } from '@json-types/compose';
-import chalk from 'chalk';
 import { parse } from 'jsr:@std/yaml';
 import * as dc from 'npm:docker-compose';
 import { DOCKER_COMPOSE_FILE } from '../constants.ts';
@@ -45,9 +44,9 @@ export const getServices = (filePath?: string): string[] => {
   const compose = getCompose(filePath);
   const services = compose.services as PropertiesServices;
 
-  if (!services) {
-    console.warn(chalk.bgRedBright(`No services found in ${filePath}`));
-  }
+  // if (!services) {
+  //   console.warn(chalk.bgRedBright(`No services found in ${filePath}`));
+  // }
 
   return Object.keys(services || {});
 };

@@ -1,12 +1,11 @@
 services:
-
   qbittorrent:
     image: linuxserver/qbittorrent
     container_name: qbittorrent
     hostname: qbittorrent
     restart: always
-    env_file: 
-      - .env
+    env_file:
+      - ../.env
     volumes:
       - ${APPS_DIR}/qbittorrent:/config
       - ${DOWNLOAD_DIR}/completed:/downloads

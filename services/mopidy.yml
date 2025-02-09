@@ -1,21 +1,20 @@
 services:
-
   mopidy:
     image: wernight/mopidy
     container_name: mopidy
     hostname: mopidy
-    env_file: 
-      - .env
-    # environment: 
+    env_file:
+      - ../.env
+    # environment:
     #   - PULSE_SERVER=$(PULSE_SERVER)
     #   - PULSE_COOKIE_DATA=${PULSE_COOKIE_DATA}
-    volumes: 
+    volumes:
       - ${APPS_DIR}/mopidy/media:/var/lib/mopidy/media:ro
       - ${APPS_DIR}/mopidy/local:/var/lib/mopidy/local
     ports:
       - 6600:6600
       - 6680:6680
-    # options: 
+    # options:
     #   - spotify/enabled=false
     #   - gmusic/enabled=false
     #   - soundcloud/enabled=false

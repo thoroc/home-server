@@ -1,10 +1,10 @@
 include:
-  - compose/couchpotato.yml
-  - compose/mopidy.yml
-  - compose/plex.yml
-  - compose/portainer.yml
-  - compose/qbittorrent.yml
-  - compose/watchtower.yml
+  - services/couchpotato.yml
+  - services/mopidy.yml
+  - services/plex.yml
+  - services/portainer.yml
+  - services/qbittorrent.yml
+  - services/watchtower.yml
 
 # services:
 
@@ -14,7 +14,7 @@ include:
 #     hostname: portainer
 #     restart: always
 #     command: --templates http://templates/templates.json
-#     env_file: 
+#     env_file:
 #       - .env
 #     ports:
 #       - 9000:9000
@@ -38,7 +38,7 @@ include:
 #     container_name: plex
 #     hostname: plex
 #     restart: unless-stopped
-#     env_file: 
+#     env_file:
 #       - .env
 #     ports:
 #       - 32400:32400/tcp
@@ -65,7 +65,7 @@ include:
 #     container_name: couchpotato
 #     hostname: couchpotato
 #     restart: always
-#     env_file: 
+#     env_file:
 #       - .env
 #     environment:
 #       - PUID=${PUID}
@@ -74,7 +74,7 @@ include:
 #       - UMASK_SET=022
 #     ports:
 #       - 5050:5050
-#     volumes: 
+#     volumes:
 #       - ${APPS_DIR}/couchpotato:/config
 #       - ${DOWNLOAD_DIR}:/downloads
 #       - ${MEDIA_DIR}/movies:/movies
@@ -85,7 +85,7 @@ include:
 #     container_name: qbittorrent
 #     hostname: qbittorrent
 #     restart: always
-#     env_file: 
+#     env_file:
 #       - .env
 #     volumes:
 #       - ${APPS_DIR}/qbittorrent:/config
@@ -106,18 +106,18 @@ include:
 #     image: wernight/mopidy
 #     container_name: mopidy
 #     hostname: mopidy
-#     env_file: 
+#     env_file:
 #       - .env
-#     # environment: 
+#     # environment:
 #     #   - PULSE_SERVER=$(PULSE_SERVER)
 #     #   - PULSE_COOKIE_DATA=${PULSE_COOKIE_DATA}
-#     volumes: 
+#     volumes:
 #       - ${APPS_DIR}/mopidy/media:/var/lib/mopidy/media:ro
 #       - ${APPS_DIR}/mopidy/local:/var/lib/mopidy/local
 #     ports:
 #       - 6600:6600
 #       - 6680:6680
-#     # options: 
+#     # options:
 #     #   - spotify/enabled=false
 #     #   - gmusic/enabled=false
 #     #   - soundcloud/enabled=false

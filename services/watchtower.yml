@@ -1,5 +1,4 @@
 services:
-
   watchtower:
     image: v2tec/watchtower
     container_name: watchtower

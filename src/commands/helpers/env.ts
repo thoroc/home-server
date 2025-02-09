@@ -3,15 +3,15 @@ interface EnvOptions {
 }
 
 export const getDefaultEnvVars = async (
-  options?: EnvOptions
+  options?: EnvOptions,
 ): Promise<Record<string, string>> => {
-  const envFile = options?.envFile ?? '.env.dist';
+  const envFile = options?.envFile ?? ".env.dist";
   const envDist = await Deno.readTextFile(envFile);
   const ENV_VARS_DIST = envDist
-    .split('\n') // split by lines
-    .filter((line) => line.trim() !== '' && !line.startsWith('#')) // filter out empty lines and comments
+    .split("\n") // split by lines
+    .filter((line) => line.trim() !== "" && !line.startsWith("#")) // filter out empty lines and comments
     .map((line) => {
-      const [name, defaultValue] = line.split('='); // split by the equal sign
+      const [name, defaultValue] = line.split("="); // split by the equal sign
       return { name, default: defaultValue };
     });
 

@@ -1,6 +1,6 @@
-import chalk from 'npm:chalk';
-import * as dc from 'npm:docker-compose';
-import { appsCheckbox, getRunningServices } from '../helpers/mod.ts';
+import chalk from "npm:chalk";
+import * as dc from "npm:docker-compose";
+import { appsCheckbox, getRunningServices } from "../helpers/mod.ts";
 
 interface StartOptions {
   all?: boolean;
@@ -12,16 +12,16 @@ interface StartOptions {
 const startInteractive = async ({ restart }: { restart: boolean }) => {
   const config = { log: true };
   let response: dc.IDockerComposeResult;
-  console.log('Starting interactive mode...');
+  console.log("Starting interactive mode...");
 
-  const apps = await appsCheckbox('start');
+  const apps = await appsCheckbox("start");
 
   if (restart) {
-    console.log('Restarting multiple applications...', apps);
+    console.log("Restarting multiple applications...", apps);
 
     response = await dc.restartMany(apps, config);
   } else {
-    console.log('Starting multiple applications...', apps);
+    console.log("Starting multiple applications...", apps);
 
     response = await dc.upMany(apps, config);
   }
@@ -34,11 +34,11 @@ const startAll = async ({ restart }: { restart: boolean }) => {
   let response: dc.IDockerComposeResult;
 
   if (restart) {
-    console.log('Restarting all applications...');
+    console.log("Restarting all applications...");
 
     response = await dc.restartAll(config);
   } else {
-    console.log('Starting all applications...');
+    console.log("Starting all applications...");
 
     response = await dc.upAll(config);
   }
@@ -57,21 +57,21 @@ const startApp = async ({
   let response: dc.IDockerComposeResult;
   if (restart) {
     if (apps.length > 1) {
-      console.log('Restarting multiple applications...', apps);
+      console.log("Restarting multiple applications...", apps);
 
       response = await dc.restartMany(apps, config);
     } else {
-      console.log('Restarting a single application...', apps[0]);
+      console.log("Restarting a single application...", apps[0]);
 
       response = await dc.restartOne(apps[0], config);
     }
   } else {
     if (apps.length > 1) {
-      console.log('Starting multiple applications...', apps);
+      console.log("Starting multiple applications...", apps);
 
       response = await dc.upMany(apps, config);
     } else {
-      console.log('Starting a single application...', apps[0]);
+      console.log("Starting a single application...", apps[0]);
 
       response = await dc.upOne(apps[0], config);
     }
@@ -90,21 +90,23 @@ const checkRunningServices = async () => {
     const ports = new Set(
       service.ports
         .map((port) => (port.mapped ? port.mapped.port : []))
-        .filter(Number)
+        .filter(Number),
     );
     // convert Set to array
-    const portsArray = Array.from(ports).join(', ');
+    const portsArray = Array.from(ports).join(", ");
 
     console.log(
-      `> ${chalk.yellow(
-        servicesName
-      )} (${state}) - http://localhost:${portsArray}`
+      `> ${
+        chalk.yellow(
+          servicesName,
+        )
+      } (${state}) - http://localhost:${portsArray}`,
     );
   }
 };
 
 export const startAction = async (options: StartOptions) => {
-  console.log('Starting application...', Deno.cwd());
+  console.log("Starting application...", Deno.cwd());
   const interactive = options.interactive || false;
   const all = options.all || !options.app;
   const app = options.app || [];

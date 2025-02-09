@@ -2,10 +2,10 @@ import {
   type Compose,
   DefinitionsInclude,
   PropertiesServices,
-} from '@json-types/compose';
-import { parse } from 'jsr:@std/yaml';
-import * as dc from 'npm:docker-compose';
-import { DOCKER_COMPOSE_FILE } from '../constants.ts';
+} from "@json-types/compose";
+import { parse } from "jsr:@std/yaml";
+import * as dc from "npm:docker-compose";
+import { DOCKER_COMPOSE_FILE } from "../constants.ts";
 
 /**
  * Retrieves and parses a Docker Compose configuration file.
@@ -70,7 +70,7 @@ export const getIncludedServices = (filePath?: string): string[] => {
   if (include) {
     const includedServices = include
       .toString()
-      .split(',')
+      .split(",")
       .map((includeFilePath) => getServices(includeFilePath))
       .flat();
 
@@ -97,7 +97,7 @@ export const getRunningServices = async (): Promise<
     const containers = await dc.ps();
 
     for (const service of containers.data.services) {
-      if (service.state.startsWith('Up')) {
+      if (service.state.startsWith("Up")) {
         runningServices.push(service);
       }
     }

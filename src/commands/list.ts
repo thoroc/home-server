@@ -9,6 +9,12 @@ interface ListOptions {
 const listAction = async (options: ListOptions) => {
   const runningServices = await getRunningServices();
 
+  // console.table(
+  //   runningServices.map((service) => {
+  //     return { service: service.name, state: service.state };
+  //   })
+  // );
+
   for (const service of runningServices) {
     console.log(
       `> ${chalk.yellow(service.name)} - ${chalk.green(service.state)}`
@@ -25,6 +31,7 @@ const listAction = async (options: ListOptions) => {
 
     if (missingServices.length > 0) {
       console.log('available services:');
+      // console.table(missingServices);
       for (const service of missingServices) {
         console.log(
           `> ${chalk.yellow(service)} - run this service with ${chalk.cyan(

@@ -5,3 +5,4 @@ export {
   getRunningServices,
   getServices,
 } from './docker/compose.ts';
+export { getDefaultEnvVars } from './env.ts';

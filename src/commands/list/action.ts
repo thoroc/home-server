@@ -1,12 +1,12 @@
-import { Command } from 'jsr:@cliffy/command@1.0.0-rc.7';
-import chalk from 'npm:chalk';
-import { getRunningServices, getServices } from './helpers/docker-compose.ts';
+import chalk from "npm:chalk";
+import { getRunningServices, getServices } from "../helpers/docker-compose.ts";
 
 interface ListOptions {
   all?: boolean;
+  recursive?: boolean;
 }
 
-const listAction = async (options: ListOptions) => {
+export const listAction = async (options: ListOptions) => {
   const runningServices = await getRunningServices();
 
   // console.table(
@@ -17,7 +17,7 @@ const listAction = async (options: ListOptions) => {
 
   for (const service of runningServices) {
     console.log(
-      `> ${chalk.yellow(service.name)} - ${chalk.green(service.state)}`
+      `> ${chalk.yellow(service.name)} - ${chalk.green(service.state)}`,
     );
   }
 
@@ -26,28 +26,22 @@ const listAction = async (options: ListOptions) => {
 
     const runningServiceNames = runningServices.map((service) => service.name);
     const missingServices = availableServices.filter(
-      (service) => !runningServiceNames.includes(service)
+      (service) => !runningServiceNames.includes(service),
     );
 
     if (missingServices.length > 0) {
-      console.log('available services:');
+      console.log("available services:");
       // console.table(missingServices);
       for (const service of missingServices) {
         console.log(
-          `> ${chalk.yellow(service)} - run this service with ${chalk.cyan(
-            `deno task cli start -a ${service}`
-          )}`
+          `> ${chalk.yellow(service)} - run this service with ${
+            chalk.cyan(
+              `deno task cli start -a ${service}`,
+            )
+          }`,
         );
       }
       return;
     }
   }
 };
-
-const listCommand = new Command()
-  .name('list')
-  .description('Lists the applications')
-  .option('-A, --all', 'List all applications')
-  .action(listAction);
-
-export { listCommand };

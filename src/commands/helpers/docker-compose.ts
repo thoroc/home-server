@@ -1,7 +1,7 @@
-import { type Compose } from '@json-types/compose';
-import { parse } from 'jsr:@std/yaml';
-import * as dc from 'npm:docker-compose';
-import { DOCKER_COMPOSE_FILE } from './constants.ts';
+import { type Compose } from "@json-types/compose";
+import { parse } from "jsr:@std/yaml";
+import * as dc from "npm:docker-compose";
+import { DOCKER_COMPOSE_FILE } from "./constants.ts";
 
 export const allServices = async (filePath?: string): Promise<string[]> => {
   const services = getServices(filePath);
@@ -17,9 +17,9 @@ export const getServices = (filePath?: string): string[] => {
   const values: Compose = parse(data) as Compose;
   const services = values.services;
 
-  if (!services) {
-    throw new Error(`No services found in ${dockerComposeFile}`);
-  }
+  // if (!services) {
+  //   throw new Error(`No services found in ${dockerComposeFile}`);
+  // }
 
   return Object.keys(services || {});
 };
@@ -32,7 +32,7 @@ export const getRunningServices = async (): Promise<
     const containers = await dc.ps();
 
     for (const service of containers.data.services) {
-      if (service.state.startsWith('Up')) {
+      if (service.state.startsWith("Up")) {
         runningServices.push(service);
       }
     }

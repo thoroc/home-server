@@ -1,8 +1,7 @@
-import { Command } from "jsr:@cliffy/command@1.0.0-rc.7";
 import { Input } from "jsr:@cliffy/prompt@1.0.0-rc.7";
 import "jsr:@std/dotenv/load";
 
-const envAction = async () => {
+export const envAction = async () => {
   console.log("Setting up the environment variables");
   const HOME_DIR = Deno.env.get("HOME");
 
@@ -61,10 +60,3 @@ const envAction = async () => {
     }
   }
 };
-
-const envCommand = new Command()
-  .name("env")
-  .description("setup the environment variables")
-  .action(envAction);
-
-export { envCommand };

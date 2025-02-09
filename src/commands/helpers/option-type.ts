@@ -1,20 +1,22 @@
-import { ArgumentValue, Type, ValidationError } from '@cliffy/command';
-import { getServices } from './docker-compose.ts';
+import { ArgumentValue, Type, ValidationError } from "@cliffy/command";
+import { getServices } from "./docker-compose.ts";
 
 export class AppType extends Type<string> {
   public readonly apps: string[];
 
   constructor() {
     super();
-    this.apps = getServices('docker-compose.yml');
+    this.apps = getServices("docker-compose.yml");
   }
 
   public parse({ label, name, value }: ArgumentValue): string {
     if (!this.apps.includes(value)) {
       throw new ValidationError(
-        `${label} "${name}" must be a valid app, but got "${value}". Possible values are: ${this.apps.join(
-          ', '
-        )}`
+        `${label} "${name}" must be a valid app, but got "${value}". Possible values are: ${
+          this.apps.join(
+            ", ",
+          )
+        }`,
       );
     }
 

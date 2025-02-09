@@ -1,6 +1,7 @@
 import { Input } from 'jsr:@cliffy/prompt@1.0.0-rc.7';
 import { parse, stringify } from 'jsr:@std/dotenv';
 import 'jsr:@std/dotenv/load';
+import { exists } from 'jsr:@std/fs';
 import { getDefaultEnvVars } from '../helpers/mod.ts';
 
 const promptForEnvVar = async (
@@ -46,7 +47,10 @@ export const envAction = async (options: EnvOptions) => {
 
   // find the .env.dist file and load all variables
   const defaultEnvVars = await getDefaultEnvVars();
-  const existingEnvVars = await parse(Deno.readTextFileSync(outputFile));
+
+  const existingEnvVars = (await exists(outputFile))
+    ? parse(Deno.readTextFileSync(outputFile))
+    : {};
 
   // check if the environment variables are set
   const envVars: Record<string, string> = {};
@@ -70,5 +74,6 @@ export const envAction = async (options: EnvOptions) => {
 
   Deno.writeTextFile(outputFile, stringify(envVars), {
     append: !overwrite,
+    create: true,
   });
 };

@@ -1,11 +1,17 @@
 include:
   - services/bazarr.yml
   - services/lidarr.yml
+  - services/plex.yml
   - services/portainer.yml
   - services/prowlarr.yml
   - services/qbittorrent.yml
   - services/radarr.yml
   - services/sonarr.yml
+  # - servcies/tautulli.yml
+  # - services/traefik.yml
+  # - services/traefik-whoami.yml
+  - services/watchtower.yml
+
 
 networks: 
   high-seas: 

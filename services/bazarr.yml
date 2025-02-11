@@ -15,6 +15,5 @@ services:
       - 6767:6767
     volumes:
       - ${HMS_DIR}/apps/bazarr:/config
-      - ${HMS_DIR}/data/movies:/mnt/media/movies
-      - ${HMS_DIR}/data/tv_shows:/mnt/media/tv_shows
+      - ${HMS_DIR}/data/media:/mnt/media
     restart: unless-stopped

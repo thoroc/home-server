@@ -16,5 +16,5 @@ services:
     volumes:
       - ${HMS_DIR}/apps/sonarr:/config
       - ${HMS_DIR}/data/downloads:/downloads
-      - ${HMS_DIR}/data/tv_shows:/data
+      - ${HMS_DIR}/data/media/tv_shows:/data
     restart: unless-stopped

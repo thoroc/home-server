@@ -16,5 +16,5 @@ services:
     volumes: 
       - ${HMS_DIR}/apps/radarr:/config 
       - ${HMS_DIR}/data/downloads:/mnt/downloads 
-      - ${HMS_DIR}/data/movies:/mnt/media 
+      - ${HMS_DIR}/data/media/movies:/mnt/media 
     restart: unless-stopped

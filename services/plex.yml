@@ -1,0 +1,33 @@
+services:
+  plex:
+    image: plexinc/pms-docker
+    container_name: plexms
+    hostname: plexms
+    networks:
+      - high-seas
+    env_file:
+      - ../.env
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - PLEX_CLAIM=${PLEX_CLAIM}
+      - PLEX_UID=${PUID}
+      - PLEX_GID=${PGID}
+      - HOSTNAME=”PlexServer”
+      - ALLOWED_NETWORKS=${LOCAL_NETWORK}
+    ports:
+      - 32400:32400/tcp
+      - 3005:3005/tcp
+      - 8324:8324/tcp
+      - 32469:32469/tcp
+      - 1900:1900/udp
+      - 32410:32410/udp
+      - 32412:32412/udp
+      - 32413:32413/udp
+      - 32414:32414/udp
+    volumes:
+      - ${HMS_DIR}/apps/plexms/config:/config
+      - ${HMS_DIR}/data/plexms/transcodes:/transcode
+      - ${HMS_DIR}/data/media:/media
+    restart: unless-stopped

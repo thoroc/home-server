@@ -2,10 +2,11 @@ import {
   type Compose,
   DefinitionsInclude,
   PropertiesServices,
-} from "@json-types/compose";
-import { parse } from "jsr:@std/yaml";
-import * as dc from "npm:docker-compose";
-import { DOCKER_COMPOSE_FILE } from "../constants.ts";
+} from '@json-types/compose';
+import { parse } from 'jsr:@std/yaml';
+import chalk from 'npm:chalk';
+import * as dc from 'npm:docker-compose';
+import { DOCKER_COMPOSE_FILE } from '../constants.ts';
 
 /**
  * Retrieves and parses a Docker Compose configuration file.
@@ -14,7 +15,7 @@ import { DOCKER_COMPOSE_FILE } from "../constants.ts";
  * @returns {Compose} The parsed Docker Compose configuration.
  * @throws Will throw an error if the file cannot be read or parsed.
  */
-const getCompose = (filePath?: string): Compose => {
+export const getCompose = (filePath?: string): Compose => {
   try {
     const dockerComposeFile = filePath || DOCKER_COMPOSE_FILE;
     // console.debug(
@@ -40,7 +41,7 @@ const getCompose = (filePath?: string): Compose => {
  * and returns the names of the services as an array of strings. If no services are found, an error message
  * is logged to the console.
  */
-export const getServices = (filePath?: string): string[] => {
+export const getServices = (filePath?: string): PropertiesServices => {
   const compose = getCompose(filePath);
   const services = compose.services as PropertiesServices;
 
@@ -48,7 +49,7 @@ export const getServices = (filePath?: string): string[] => {
   //   console.warn(chalk.bgRedBright(`No services found in ${filePath}`));
   // }
 
-  return Object.keys(services || {});
+  return services;
 };
 
 /**
@@ -60,7 +61,7 @@ export const getServices = (filePath?: string): string[] => {
  * @param {string} [filePath] - The optional path to the Docker Compose file. If not provided, a default path will be used.
  * @returns {string[]} An array of service names included in the Docker Compose file.
  */
-export const getIncludedServices = (filePath?: string): string[] => {
+export const getIncludedServices = (filePath?: string): PropertiesServices => {
   const services = getServices(filePath);
 
   const compose = getCompose(filePath);
@@ -70,11 +71,12 @@ export const getIncludedServices = (filePath?: string): string[] => {
   if (include) {
     const includedServices = include
       .toString()
-      .split(",")
-      .map((includeFilePath) => getServices(includeFilePath))
-      .flat();
+      .split(',')
+      .reduce((acc, includeFilePath) => {
+        return { ...acc, ...getServices(includeFilePath) };
+      }, {});
 
-    return [...services, ...includedServices];
+    return { ...services, ...includedServices };
   }
 
   return services;
@@ -97,7 +99,7 @@ export const getRunningServices = async (): Promise<
     const containers = await dc.ps();
 
     for (const service of containers.data.services) {
-      if (service.state.startsWith("Up")) {
+      if (service.state.startsWith('Up')) {
         runningServices.push(service);
       }
     }
@@ -106,5 +108,28 @@ export const getRunningServices = async (): Promise<
   } catch (error) {
     console.error(error);
     throw error;
+  }
+};
+
+export const checkRunningServices = async () => {
+  const runningServices: dc.DockerComposePsResultService[] =
+    await getRunningServices();
+
+  for (const service of runningServices) {
+    const servicesName = service.name;
+    const state = service.state;
+    const ports = new Set(
+      service.ports
+        .map((port) => (port.mapped ? port.mapped.port : []))
+        .filter(Number)
+    );
+    // convert Set to array
+    const portsArray = Array.from(ports).join(', ');
+
+    console.log(
+      `> ${chalk.yellow(
+        servicesName
+      )} (${state}) - http://localhost:${portsArray}`
+    );
   }
 };

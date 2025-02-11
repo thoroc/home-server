@@ -1,0 +1,16 @@
+services:
+  sonarr:
+    image: linuxserver/sonarr
+    container_name: sonarr
+    restart: unless-stopped
+    env_file:
+      - ../.env
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    ports:
+      - 8989:9001
+    volumes:
+      - ${HMS_DIR}/apps/sonarr:/config
+      - ${HMS_DIR}/content:/data

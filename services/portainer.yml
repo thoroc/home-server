@@ -1,16 +1,14 @@
 services:
   portainer:
-    image: portainer/portainer
+    image: portainer/portainer-ce:latest
     container_name: portainer
-    hostname: portainer
-    restart: always
-    command: --templates http://templates/templates.json
+    restart: unless-stopped
     env_file:
       - ../.env
+    environment:
+      - TZ=${TZ}
     ports:
       - 9000:9000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ${APPS_DIR}/portainer/data:/data
-    environment:
-      - TZ=${TZ}
+      - ${HMS_DIR}/apps/portainer/data:/data

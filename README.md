@@ -28,7 +28,7 @@ but _AUTOMATION_!
 ### Usage
 
 ```bash
-Task cli deno run -A main.ts "--help"
+$ deno task cli --help
 
 Usage:   home-server-cli
 Version: 0.1.0          
@@ -52,4 +52,26 @@ Commands:
 
 ## Stacks
 
-- [ ] Portainer
+### Container management
+
+- [ ] Portainer # Docker container manager - <https://www.portainer.io/>
+- [ ] Watchtower # Docker image updater - <https://containrrr.dev/watchtower/>
+
+### Media Services
+
+- [ ] Plex Media Server # Media server - <https://plex.tv/>
+- [ ] qBittorrent # Torrent client
+- [ ] Sonarr # TV Show manager - <https://sonarr.tv/>
+- [ ] Radarr # Movies manager - <https://radarr.video/>
+- [ ] Bazarr # Sutitle manager - <https://www.bazarr.media/>
+- [ ] Lidarr # Music manager - <https://lidarr.audio/>
+
+#### Additional Services
+
+- [ ] Tautulli # Plex Server monitor - <https://tautulli.com/>
+- [ ] Kometa # aka Plex Meta manager - <https://kometa.wiki/en/latest/>
+- [ ] Tdarr # Transcoding manager - <https://home.tdarr.io/>
+
+### Optional Services
+
+- [ ] Heimdall # Homepage for hosted apps - <https://heimdall.site/>

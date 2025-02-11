@@ -3,6 +3,8 @@ services:
     image: portainer/portainer-ce:latest
     container_name: portainer
     restart: unless-stopped
+    networks:
+      - high-seas
     env_file:
       - ../.env
     environment:

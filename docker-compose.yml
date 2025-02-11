@@ -1,3 +1,8 @@
 include:
   - services/portainer.yml
   - services/sonarr.yml
+  - services/radarr.yml
+
+networks: 
+  high-seas: 
+    driver: bridge

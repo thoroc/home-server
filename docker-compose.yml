@@ -2,6 +2,7 @@ include:
   - services/bazarr.yml
   - services/portainer.yml
   - services/prowlarr.yml
+  - services/qbittorrent.yml
   - services/radarr.yml
   - services/sonarr.yml
 

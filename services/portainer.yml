@@ -2,7 +2,6 @@ services:
   portainer:
     image: portainer/portainer-ce:latest
     container_name: portainer
-    restart: unless-stopped
     networks:
       - high-seas
     env_file:
@@ -14,3 +13,4 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ${HMS_DIR}/apps/portainer/data:/data
+    restart: unless-stopped

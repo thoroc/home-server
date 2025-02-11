@@ -123,13 +123,13 @@ export const checkRunningServices = async () => {
         .map((port) => (port.mapped ? port.mapped.port : []))
         .filter(Number)
     );
-    // convert Set to array
-    const portsArray = Array.from(ports).join(', ');
 
-    console.log(
-      `> ${chalk.yellow(
-        servicesName
-      )} (${state}) - http://localhost:${portsArray}`
-    );
+    for (const port of ports) {
+      console.log(
+        `> ${chalk.yellow(servicesName)} (${chalk.cyan(
+          state
+        )}) - http://localhost:${port}`
+      );
+    }
   }
 };

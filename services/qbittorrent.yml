@@ -1,8 +1,8 @@
 services:
-  sonarr:
-    image: lscr.io/linuxserver/sonarr:latest 
-    container_name: sonarr
-    hostname: sonarr
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    hostname: qbittorrent
     networks:
       - high-seas
     env_file:
@@ -12,9 +12,10 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     ports:
-      - 8989:8989
+      - 8080:8080
+      - 6881:6881
+      - 6881:6881/udp
     volumes:
-      - ${HMS_DIR}/apps/sonarr:/config
+      - ${HMS_DIR}/apps/qbittorrent:/config
       - ${HMS_DIR}/data/downloads:/downloads
-      - ${HMS_DIR}/data/tv_shows:/data
     restart: unless-stopped

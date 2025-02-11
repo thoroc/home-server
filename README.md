@@ -60,7 +60,7 @@ Commands:
 ### Media Services
 
 - [ ] Plex Media Server # Media server - <https://plex.tv/>
-- [ ] qBittorrent # Torrent client
+- [x] qBittorrent # Torrent client
 - [x] Prowlarr # Indexer manager - <https://prowlarr.com/>
 - [x] Sonarr # TV Show manager - <https://sonarr.tv/>
 - [x] Radarr # Movies manager - <https://radarr.video/>

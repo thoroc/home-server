@@ -64,7 +64,7 @@ Commands:
 - [x] Prowlarr # Indexer manager - <https://prowlarr.com/>
 - [x] Sonarr # TV Show manager - <https://sonarr.tv/>
 - [x] Radarr # Movies manager - <https://radarr.video/>
-- [ ] Bazarr # Sutitle manager - <https://www.bazarr.media/>
+- [x] Bazarr # Sutitle manager - <https://www.bazarr.media/>
 - [ ] Lidarr # Music manager - <https://lidarr.audio/>
 - [ ] Meelo # Media server - <https://github.com/Arthi-chaud/Meelo>
 

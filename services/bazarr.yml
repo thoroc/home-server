@@ -1,0 +1,20 @@
+services:
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
+    hostname: bazarr
+    networks:
+      - high-seas
+    env_file:
+      - ../.env
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    ports:
+      - 6767:6767
+    volumes:
+      - ${HMS_DIR}/apps/bazarr:/config
+      - ${HMS_DIR}/data/movies:/mnt/media
+      - ${HMS_DIR}/data/tv_shows:/mnt/media
+    restart: unless-stopped

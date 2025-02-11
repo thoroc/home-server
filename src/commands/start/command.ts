@@ -1,6 +1,6 @@
 import { Command } from 'jsr:@cliffy/command@1.0.0-rc.7';
 import { AppType } from '../helpers/mod.ts';
-import { startAction } from './start/mod.ts';
+import { startAction } from './action.ts';
 
 const startCommand = new Command()
   .name('start')

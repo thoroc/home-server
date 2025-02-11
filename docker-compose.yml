@@ -1,7 +1,8 @@
 include:
   - services/portainer.yml
-  - services/sonarr.yml
+  - services/prowlarr.yml
   - services/radarr.yml
+  - services/sonarr.yml
 
 networks: 
   high-seas: 

@@ -3,7 +3,6 @@ services:
     image: lscr.io/linuxserver/radarr:latest 
     container_name: radarr 
     hostname: radarr 
-    restart: unless-stopped
     networks: 
       - high-seas 
     env_file:
@@ -18,3 +17,4 @@ services:
       - ${HMS_DIR}/apps/radarr:/config 
       - ${HMS_DIR}/data/movies:/mnt/media 
       - ${HMS_DIR}/data/downloads:/mnt/downloads 
+    restart: unless-stopped

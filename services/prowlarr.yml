@@ -1,0 +1,18 @@
+services:
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest 
+    container_name: prowlarr
+    hostname: prowlarr
+    networks: 
+      - high-seas 
+    env_file:
+      - ../.env
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    ports: 
+      - 9696:9696
+    volumes: 
+      - ${HMS_DIR}/apps/prowlarr:/config
+    restart: unless-stopped 

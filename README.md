@@ -54,17 +54,19 @@ Commands:
 
 ### Container management
 
-- [ ] Portainer # Docker container manager - <https://www.portainer.io/>
+- [x] Portainer # Docker container manager - <https://www.portainer.io/>
 - [ ] Watchtower # Docker image updater - <https://containrrr.dev/watchtower/>
 
 ### Media Services
 
 - [ ] Plex Media Server # Media server - <https://plex.tv/>
 - [ ] qBittorrent # Torrent client
-- [ ] Sonarr # TV Show manager - <https://sonarr.tv/>
-- [ ] Radarr # Movies manager - <https://radarr.video/>
+- [x] Prowlarr # Indexer manager - <https://prowlarr.com/>
+- [x] Sonarr # TV Show manager - <https://sonarr.tv/>
+- [x] Radarr # Movies manager - <https://radarr.video/>
 - [ ] Bazarr # Sutitle manager - <https://www.bazarr.media/>
 - [ ] Lidarr # Music manager - <https://lidarr.audio/>
+- [ ] Meelo # Media server - <https://github.com/Arthi-chaud/Meelo>
 
 #### Additional Services
 
@@ -75,3 +77,7 @@ Commands:
 ### Optional Services
 
 - [ ] Heimdall # Homepage for hosted apps - <https://heimdall.site/>
+
+## Future plans
+
+- implement profiles: <https://event-driven.io/en/docker_compose_profiles/>

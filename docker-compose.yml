@@ -1,5 +1,6 @@
 include:
   - services/bazarr.yml
+  - services/lidarr.yml
   - services/portainer.yml
   - services/prowlarr.yml
   - services/qbittorrent.yml

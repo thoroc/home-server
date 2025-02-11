@@ -1,0 +1,20 @@
+services:
+  lidarr:
+    image: lscr.io/linuxserver/lidarr
+    container_name: lidarr
+    hostname: lidarr
+    networks:
+      - high-seas
+    env_file:
+      - ../.env
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    ports:
+      - 8686:8686
+    volumes:
+      - ${HMS_DIR}/apps/lidarr:/config
+      - ${HMS_DIR}/data/downloads:/downloads
+      - ${HMS_DIR}/data/music:/media/music
+    restart: "always"

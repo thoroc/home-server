@@ -65,7 +65,7 @@ Commands:
 - [x] Sonarr # TV Show manager - <https://sonarr.tv/>
 - [x] Radarr # Movies manager - <https://radarr.video/>
 - [x] Bazarr # Sutitle manager - <https://www.bazarr.media/>
-- [ ] Lidarr # Music manager - <https://lidarr.audio/>
+- [x] Lidarr # Music manager - <https://lidarr.audio/>
 - [ ] Meelo # Media server - <https://github.com/Arthi-chaud/Meelo>
 
 #### Additional Services

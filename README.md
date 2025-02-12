@@ -86,3 +86,11 @@ Commands:
 ## Future plans
 
 - implement profiles: <https://event-driven.io/en/docker_compose_profiles/>
+
+## References
+
+- <https://docs.linuxserver.io/>
+- <https://github.com/SimpleHomelab/docker-traefik>
+- <https://docs.techdox.nz/>
+- <https://thehomelab.wiki/>
+- <https://home-automation-india.github.io/>

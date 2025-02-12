@@ -14,6 +14,6 @@ services:
     ports:
       - 8181:8181
     volumes:
-      - ${HMS_DIR}/apps/tautulli:/config
-      - ${HMS_DIR}/apps/tautulli/logs:/logs
+      - ${HMS_DIR}/apps/tautulli/config:/config
+      - ${HMS_DIR}/apps/plexms/config/Library/Application Support/Plex Media Server/Logs:/logs:ro
     restart: unless-stopped

@@ -10,9 +10,9 @@ import {
 // Learn more at https://docs.deno.com/runtime/manual/examples/module_metadata#concepts
 if (import.meta.main) {
   await new Command()
-    .name('home-server-cli')
-    .version('0.1.0')
-    .description('CLI for managing home server')
+    .name('hms-victor')
+    .version('0.1.5')
+    .description('CLI to manage Home Media Server (HMS) services.')
     .command('list', listCommand)
     .command('start', startCommand)
     .command('stop', stopCommand)

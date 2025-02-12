@@ -28,6 +28,6 @@ services:
       - 32414:32414/udp
     volumes:
       - ${HMS_DIR}/apps/plexms/config:/config
-      - ${HMS_DIR}/data/plexms/transcodes:/transcode
-      - ${HMS_DIR}/data/media:/media
+      - ${HMS_DIR}/data/media/transcodes:/transcode
+      - ${HMS_DIR}/data/media:/data/media
     restart: unless-stopped

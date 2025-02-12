@@ -55,11 +55,16 @@ Commands:
 ### Container management
 
 - [x] Portainer # Docker container manager - <https://www.portainer.io/>
-- [ ] Watchtower # Docker image updater - <https://containrrr.dev/watchtower/>
+- [x] Watchtower # Docker image updater - <https://containrrr.dev/watchtower/>
+
+### Network infrastructure
+
+- [ ] # DNS Server
+- [ ] # Reverse Proxy
 
 ### Media Services
 
-- [ ] Plex Media Server # Media server - <https://plex.tv/>
+- [x] Plex Media Server # Media server - <https://plex.tv/>
 - [x] qBittorrent # Torrent client
 - [x] Prowlarr # Indexer manager - <https://prowlarr.com/>
 - [x] Sonarr # TV Show manager - <https://sonarr.tv/>
@@ -70,7 +75,7 @@ Commands:
 
 #### Additional Services
 
-- [ ] Tautulli # Plex Server monitor - <https://tautulli.com/>
+- [x] Tautulli # Plex Server monitor - <https://tautulli.com/>
 - [ ] Kometa # aka Plex Meta manager - <https://kometa.wiki/en/latest/>
 - [ ] Tdarr # Transcoding manager - <https://home.tdarr.io/>
 

@@ -1,0 +1,19 @@
+services:
+  tautulli:
+    image: lscr.io/linuxserver/tautulli:latest
+    container_name: tautulli
+    hostname: tautulli
+    networks:
+      - high-seas
+    env_file:
+      - ../.env
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    ports:
+      - 8181:8181
+    volumes:
+      - ${HMS_DIR}/apps/tautulli:/config
+      - ${HMS_DIR}/apps/tautulli/logs:/logs
+    restart: unless-stopped

@@ -7,9 +7,7 @@ include:
   - services/qbittorrent.yml
   - services/radarr.yml
   - services/sonarr.yml
-  # - servcies/tautulli.yml
-  # - services/traefik.yml
-  # - services/traefik-whoami.yml
+  - services/tautulli.yml
   - services/watchtower.yml
 
 

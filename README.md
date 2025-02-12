@@ -81,7 +81,7 @@ Commands:
 
 ### Optional Services
 
-- [ ] Heimdall # Homepage for hosted apps - <https://heimdall.site/>
+- [x] Homarr # Homepage for hosted apps - <https://homarr.dev/>
 
 ## Future plans
 

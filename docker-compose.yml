@@ -1,5 +1,7 @@
 include:
   - services/bazarr.yml
+  # - services/heimdall.yml
+  - services/homarr.yml
   - services/lidarr.yml
   - services/plex.yml
   - services/portainer.yml
